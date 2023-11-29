@@ -11,7 +11,7 @@ type IProps = {
 const FavoriteButton: React.FC<IProps> = ({ onPress, isFavorite, testID }) => {
     return (
         <TouchableOpacity testID={testID} onPress={onPress} style={styles.favoriteButton}>
-            <AntDesign name="star" size={24} color={isFavorite ? "#f5c518" : "#80808094"} />
+            <AntDesign name="star" size={24} color={isFavorite ? "#f5c518" : "#918991"} />
         </TouchableOpacity>
     );
 }

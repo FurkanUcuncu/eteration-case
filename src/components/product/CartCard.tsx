@@ -45,7 +45,7 @@ const CartCard: React.FC<{ item: ICart, actions?: boolean }> = ({ item, actions 
                         mode="text"
                         onPress={() => dispatch(subtractFromCart(item))}
                     >
-                        <AntDesign name="minus" size={20} color="black" />
+                        <AntDesign name="minus" size={15} color="black" />
                     </Button>
                     <Text style={[styles.quantityText, { backgroundColor: colors.primary }]}>{item.quantity}</Text>
                     <Button

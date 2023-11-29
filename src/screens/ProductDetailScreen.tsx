@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, ScrollView } from "react-native";
 import Layout from "../components/layout/Layout";
 import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 import { addToCart, toggleFavorites } from '../store/product/productSlice';
 import { IProductDetailScreenProps } from '@/models/navigation';
-import { currencyFormatter } from '../utils/utils';
+import { currencyFormatter, deviceHeight } from '../utils/utils';
 import BottomActions from '../components/BottomActions';
 import FavoriteButton from '../components/FavoriteButton';
 
@@ -27,7 +27,9 @@ const ProductDetailScreen: React.FC<IProductDetailScreenProps> = ({ route }) => 
                 <View style={styles.top}>
                     <Image style={styles.image} source={{ uri: image }} />
                     <Text style={styles.title}>{name}</Text>
-                    <Text>{description}</Text>
+                    <ScrollView>
+                        <Text>{description}{description}</Text>
+                    </ScrollView>
                 </View>
                 <BottomActions
                     onPress={() => dispatch(addToCart(route.params.item))}
@@ -52,11 +54,12 @@ const styles = StyleSheet.create({
     },
     image: {
         width: "100%",
-        height: 200,
+        height: deviceHeight * 0.2,
         marginBottom: 20
     },
     top: {
-        position: "relative"
+        position: "relative",
+        flex: 1
     },
     bottom: {
         flexDirection: "row",

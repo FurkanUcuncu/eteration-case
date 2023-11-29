@@ -1,4 +1,4 @@
-import { currencyFormatter } from '../../utils/utils';
+import { currencyFormatter, deviceHeight } from '../../utils/utils';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
 import React, { memo } from 'react';
 import { StyleSheet } from "react-native";
@@ -26,7 +26,7 @@ const ProductCard: React.FC<{ item: IProductCard }> = ({ item }) => {
 
     return (
         <Card testID="card" accessible onPress={() => navigation.navigate("ProductDetailScreen", { item })} style={styles.container}>
-            <Card.Cover source={{ uri: image }} />
+            <Card.Cover style={styles.image} source={{ uri: image }} />
             <Card.Content style={styles.contentContainer}>
                 <Text
                     style={[styles.title, { color: colors.primary }]}
@@ -61,6 +61,9 @@ const ProductCard: React.FC<{ item: IProductCard }> = ({ item }) => {
 }
 
 const styles = StyleSheet.create({
+    image: {
+        height: deviceHeight * 0.2
+    },
     container: {
         width: "100%",
         position: "relative"
@@ -79,7 +82,7 @@ const styles = StyleSheet.create({
         fontWeight: "400"
     },
     subtitle: {
-        height: 30
+        minHeight: 30
     },
     favoriteButton: {
         position: "absolute",
