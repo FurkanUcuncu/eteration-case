@@ -1,25 +1,27 @@
-import { configureFonts, DefaultTheme, DarkTheme as PaperDarkTheme } from "react-native-paper";
+import { configureFonts, DefaultTheme } from "react-native-paper";
 
-const fonts: any = {
+type IFont = { regular: { fontFamily: string, fontWeight: "bold" | "normal" }, medium: { fontFamily: string, fontWeight: "bold" | "normal" }, light: { fontFamily: string, fontWeight: "bold" | "normal" }, thin: { fontFamily: string, fontWeight: "bold" | "normal" } }
+
+const fonts: IFont = {
     regular: {
-        fontFamily: 'redhat-regular',
+        fontFamily: 'red-hat-regular',
         fontWeight: 'normal',
     },
     medium: {
-        fontFamily: 'redhat-black',
-        fontWeight: 'normal',
+        fontFamily: 'red-hat-black',
+        fontWeight: 'bold',
     },
     light: {
-        fontFamily: 'redhat-black',
-        fontWeight: 'normal',
+        fontFamily: 'red-hat-black',
+        fontWeight: 'bold',
     },
     thin: {
-        fontFamily: 'redhat-black',
-        fontWeight: 'normal',
-    },
+        fontFamily: 'red-hat-black',
+        fontWeight: 'bold',
+    }
 }
 
-const font = {
+const font: { web: IFont, ios: IFont, android: IFont } = {
     web: { ...fonts },
     ios: { ...fonts },
     android: { ...fonts }
@@ -61,43 +63,6 @@ const theme = {
     fonts: configureFonts(font),
 };
 
-const darkTheme = {
-    ...PaperDarkTheme,
-    version: 2,
-    colors: {
-        ...PaperDarkTheme.colors,
-        primary: '#17C3B2',
-        header: {
-            bg: "#1e1d1e",
-            text: "#ffffffb3",
-        },
-        bodyBg: "#2a2d35",
-        body: {
-            bg: "#2a2d35",
-            title: "white",
-            text: "#ffffffcc",
-            unSelected: "#ffffff3b",
-            switchBg: "#31343E",
-            switchTrack: "#ffffffb3",
-        },
-        todo: {
-            bg: "#ffffff0d",
-            text: "white",
-        },
-        shadow: {
-            shadowColor: "#fff",
-            shadowOffset: {
-                width: 0,
-                height: 1,
-            },
-            shadowOpacity: 0.22,
-            shadowRadius: 2.42,
-            elevation: 4,
-        },
-    },
-    fonts: configureFonts(font),
-}
-
-const CustomSettings = { theme, darkTheme, font }
+const CustomSettings = { theme, font }
 
 export default CustomSettings

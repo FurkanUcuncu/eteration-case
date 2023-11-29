@@ -1,20 +1,34 @@
 export const mockProduct = [
   {
     id: '2',
-    discount: 'test',
     image: 'test',
     name: 'test',
-    rating: 3,
     price: 5,
-    originalPrice: 5,
+    description: "test",
+    isFavorite: false,
+    model: "test-model"
   },
 ];
 
 export const mockCart = [
   {
-    productId: '2',
+    id: '2',
     name: 'test',
     price: 22,
-    quantity: 5,
+    description: "test",
+    image: "test",
+    quantity: 2
+  },
+];
+
+export const mockFavorites = [
+  {
+    id: '2',
+    name: 'test',
+    price: 22,
+    description: "test",
+    image: "test",
+    isFavorite: true,
+    model: "test"
   },
 ];

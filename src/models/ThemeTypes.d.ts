@@ -1,4 +1,4 @@
-export declare global {
+declare global {
     namespace ReactNativePaper {
 
         interface ThemeColors {
@@ -31,3 +31,5 @@ export declare global {
         }
     }
 }
+
+export default global

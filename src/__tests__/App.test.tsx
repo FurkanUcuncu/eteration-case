@@ -1,21 +1,18 @@
-import React, { Suspense } from 'react';
-import { render } from '@testing-library/react';
+import 'react-native';
+import React from 'react';
+import { render } from '@testing-library/react-native';
 import App from '../../App';
-import { ReduxWrapper } from '../utils/ReduxWrapper';
+import { it } from '@jest/globals';
 
-jest.mock('axios', () => ({
-    create: jest.fn(),
-    config: {
-        paramsSerializer: jest.fn(),
-    },
-}));
+import renderer from 'react-test-renderer';
 
-test('renders learn react link', async () => {
-    afterEach(() => {
-        jest.restoreAllMocks();
+describe('App', () => {
+    it('renders correctly', () => {
+        renderer.create(<App />);
     });
-    render(
-        <App />,
-        { wrapper: ReduxWrapper },
-    );
+
+    it('should renders correctly', () => {
+        const page = render(<App />);
+        expect(page.toJSON()).toMatchSnapshot();
+    });
 });
