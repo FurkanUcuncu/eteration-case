@@ -8,7 +8,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "ts:check": "tsc",
-    "test": "jest --verbose --coverage"
+    "test": "jest --verbose --coverage",
+    "prettier": "prettier . --write",
+    "prepare": "husky install",
+    "eslint": "eslint src/ --fix"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -90,11 +93,36 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/$1"
     },
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "testPathIgnorePatterns": ["\\.snap$", "<rootDir>/node_modules/", "<rootDir>/assets/"],
-    "transformIgnorePatterns": ["node_modules/?!(static-container)", "jest-runner"],
-    "collectCoverageFrom": ["src/**/*.{ts,tsx}", "!**/node_modules/**","!**/src/models/**"]
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/",
+      "<rootDir>/assets/"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/?!(static-container)",
+      "jest-runner"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/src/models/**"
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
   },
   "private": true
 }

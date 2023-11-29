@@ -1,13 +1,13 @@
-import React from 'react';
-import { render } from '@testing-library/react-native';
-import NoRecord from '../../components/NoRecord';
+import React from "react";
+import { render } from "@testing-library/react-native";
+import NoRecord from "../../components/NoRecord";
 
 const initialValues = {
-    text: "test"
+  text: "test",
 };
 
-describe('NoRecord component Test', () => {
-    it('NoRecord render', () => {
-        render(<NoRecord {...initialValues} />)
-    });
+describe("NoRecord component Test", () => {
+  it("NoRecord render", () => {
+    render(<NoRecord {...initialValues} />);
+  });
 });

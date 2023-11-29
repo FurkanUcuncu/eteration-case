@@ -1,14 +1,14 @@
-import { api } from './api';
+import { api } from "./api";
 
 const products = () => {
   return api({
-    url: '/products',
-    method: 'GET',
+    url: "/products",
+    method: "GET",
   });
 };
 
 const productServices = {
-  products
+  products,
 };
 
 export default productServices;
